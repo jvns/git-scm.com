@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Git Cheat Sheet</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="cheat-sheet">
+  <h1>Git Cheat Sheet</h1>
+
+  <section>
+    <h2>Getting Started</h2>
+    <div class="command">
+      <div class="command-desc">Start a new repo:</div>
+      <code>git init</code>
+    </div>
+    <div class="command">
+      <div class="command-desc">Clone an existing repo:</div>
+      <code>git clone &lt;url&gt;</code>
+    </div>
+  </section>
+
+  <section>
+    <h2>Prepare to Commit</h2>
+    <div class="command">
+      <div class="command-desc">Add untracked file or unstaged changes:</div>
+      <code>git add &lt;file&gt;</code>
+    </div>
+    <div class="command">
+      <div class="command-desc">Add all untracked files and unstaged changes:</div>
+      <code>git add .</code>
+    </div>
+    <div class="command">
+      <div class="command-desc">Choose which parts of a file to stage:</div>
+      <code>git add -p</code>
+    </div>
+    <div class="command">
+      <div class="command-desc">Delete file:</div>
+      <code>git rm &lt;file&gt;</code>
+    </div>
+
+    <div class="command">
+      <div class="command-desc">Move file:</div>
+      <code>git mv &lt;old&gt; &lt;new&gt;</code>
+    </div>
+    <div class="command">
+      <div class="command-desc">Tell git to forget about a file without deleting it:</div>
+      <code>git rm --cached &lt;file&gt;</code>
+    </div>
+    <div class="command">
+      <div class="command-desc">Unstage everything:</div>
+      <code>git reset</code>
+    </div>
+    <div class="command">
+      <div class="command-desc">Check what you added:</div>
+      <code>git status</code>
+    </div>
+  </section>
+
+  <section>
+    <h2>Make Commits</h2>
+    <div class="command">
+      <div class="command-desc">Make a commit (and open text editor to write message):</div>
+      <code>git commit</code>
+    </div>
+    <div class="command">
+      <div class="command-desc">Make a commit:</div>
+      <code>git commit -m 'message'</code>
+    </div>
+    <div class="command">
+      <div class="command-desc">Commit all unstaged changes:</div>
+      <code>git commit -am 'message'</code>
+    </div>
+  </section>
+
+  <section>
+    <h2>Move Between Branches</h2>
+    <div class="command">
+      <div class="command-desc">Switch branches:</div>
+      <div class="multi-code">
+        <code>git switch &lt;name&gt;</code>
+        <span class="or">OR</span>
+        <code>git checkout &lt;name&gt;</code>
+      </div>
+    </div>
+    <div class="command">
+      <div class="command-desc">Create a branch:</div>
+      <div class="multi-code">
+        <code>git switch -c &lt;name&gt;</code>
+        <span class="or">OR</span>
+        <code>git checkout -b &lt;name&gt;</code>
+      </div>
+    </div>
+    <div class="command">
+      <div class="command-desc">List branches:</div>
+      <code>git branch</code>
+    </div>
+    <div class="command">
+      <div class="command-desc">List branches by most recently committed to:</div>
+      <code>git branch --sort=-committerdate</code>
+    </div>
+    <div class="command">
+      <div class="command-desc">Delete a branch:</div>
+      <code>git branch -d &lt;name&gt;</code>
+    </div>
+    <div class="command">
+      <div class="command-desc">Force delete a branch:</div>
+      <code>git branch -D &lt;name&gt;</code>
+    </div>
+  </section>
+
+  <section>
+    <h2>Diff Commits</h2>
+    <div class="command">
+      <div class="command-desc">Show diff between a commit and its parent:</div>
+      <code>git show &lt;commit&gt;</code>
+    </div>
+    <div class="command">
+      <div class="command-desc">Show diff between a merge commit and its merged parents:</div>
+      <code>git show --remerge-diff &lt;commit&gt;</code>
+    </div>
+    <div class="command">
+      <div class="command-desc">Diff two commits:</div>
+      <code>git diff &lt;commit&gt; &lt;commit&gt;</code>
+    </div>
+    <div class="command">
+      <div class="command-desc">Just show diff for one file:</div>
+      <code>git diff &lt;commit&gt; &lt;file&gt;</code>
+    </div>
+    <div class="command">
+      <div class="command-desc">Show a summary of a diff:</div>
+      <div class="multi-code">
+        <code>git diff &lt;commit&gt; --stat</code>
+        <code>git show &lt;commit&gt; --stat</code>
+      </div>
+    </div>
+  </section>
+  <section class="commit-ref">
+    <h2>Ways to refer to a commit</h2>
+    <p class="intro">
+      Every time we say <code>&lt;commit&gt;</code>, you can use any of these:
+    </p>
+
+    <dl>
+      <dt>a branch</dt>
+      <dd>main</dd>
+
+      <dt>a tag</dt>
+      <dd>v0.1</dd>
+
+      <dt>a commit ID</dt>
+      <dd>3e887ab</dd>
+
+      <dt>a remote branch</dt>
+      <dd>origin/main</dd>
+
+      <dt>current commit</dt>
+      <dd>HEAD</dd>
+
+      <dt>3 commits ago</dt>
+      <dd>HEAD^^^</dd>
+
+      <dt>3 commits ago</dt>
+      <dd>HEAD~3</dd>
+    </dl>
+  </section>
+
+  <section>
+    <h2>Diff Staged/Unstaged Changes</h2>
+    <div class="command">
+      <div class="command-desc">Diff all staged and unstaged changes:</div>
+      <code>git diff HEAD</code>
+    </div>
+    <div class="command">
+      <div class="command-desc">Diff just staged changes:</div>
+      <code>git diff --staged</code>
+    </div>
+    <div class="command">
+      <div class="command-desc">Diff just unstaged changes:</div>
+      <code>git diff</code>
+    </div>
+  </section>
+
+  <section>
+    <h2>Discard Your Changes</h2>
+    <div class="command">
+      <div class="command-desc">Delete all staged and unstaged changes to one file:</div>
+      <code>git checkout HEAD &lt;file&gt;</code>
+    </div>
+    <div class="command">
+      <div class="command-desc">Delete unstaged changes to one file:</div>
+      <code>git checkout &lt;file&gt;</code>
+    </div>
+    <div class="command">
+      <div class="command-desc">Delete all staged and unstaged changes:</div>
+      <code>git reset --hard</code>
+    </div>
+    <div class="command">
+      <div class="command-desc">Delete untracked files:</div>
+      <code>git clean</code>
+    </div>
+    <div class="command">
+      <div class="command-desc">'Stash' all staged and unstaged changes:</div>
+      <code>git stash</code>
+    </div>
+  </section>
+
+  <section>
+    <h2>Edit History</h2>
+    <div class="command">
+      <div class="command-desc">"Undo" the most recent commit (keep your working directory the same):</div>
+      <code>git reset HEAD^</code>
+    </div>
+    <div class="command">
+      <div class="command-desc">Squash the last 5 commits into one:</div>
+      <code>git rebase -i HEAD^^^^^^</code>
+      <p>(And change "pick" to "fixup" for any commit you want to combine with the previous one)</p>
+    </div>
+    <div class="command">
+      <div class="command-desc">Undo a failed rebase:</div>
+      <code>git reflog BRANCHNAME</code>
+      (find the right commit ID in the reflog)
+      <code>git reset --hard &lt;commit&gt;</code>
+    </div>
+    <div class="command">
+      <div class="command-desc">Change a commit message (or add a file you forgot):</div>
+      <code>git commit --amend</code>
+    </div>
+  </section>
+
+  <section>
+    <h2>Code Archaeology</h2>
+    <div class="command">
+      <div class="command-desc">Look at a branch's history:</div>
+      <code>git log main</code>
+      <code>git log --graph a b</code>
+      <code>git log --oneline</code>
+    </div>
+    <div class="command">
+      <div class="command-desc">Show who last changed each line of a file:</div>
+      <code>git blame &lt;file&gt;NAME</code>
+    </div>
+    <div class="command">
+      <div class="command-desc">Show every commit that modified a file:</div>
+      <code>git log &lt;file&gt;NAME</code>
+    </div>
+    <div class="command">
+      <div class="command-desc">Find every commit that added or removed some text:</div>
+      <code>git log -S banana</code>
+    </div>
+  </section>
+
+  <section>
+    <h2>Combine Diverged Branches</h2>
+    <div class="command">
+      <div class="command-desc">Combine with rebase:</div>
+      <code>git switch banana</code>
+      <code>git rebase main</code>
+    </div>
+    <div class="command">
+      <div class="command-desc">Combine with merge:</div>
+      <code>git switch main</code>
+      <code>git merge banana</code>
+    </div>
+    <div class="command">
+      <div class="command-desc">Combine with squash merge:</div>
+      <code>git switch main</code>
+      <code>git merge --squash banana</code>
+      <code>git commit</code>
+    </div>
+    <div class="command">
+      <div class="command-desc">Bring a branch up to date with another branch (aka "fast-forward merge"):</div>
+      <code>git switch main</code>
+      <code>git merge banana</code>
+
+      Before:
+      <img src="cheat-sheet-svgs/ff-merge-before.svg">
+      After:
+
+      <img src="cheat-sheet-svgs/ff-merge-after.svg">
+    </div>
+    <div class="command">
+      <div class="command-desc">Copy one commit onto the current branch:</div>
+      <code>git cherry-pick &lt;commit&gt;</code>
+      Before:
+      <img src="cheat-sheet-svgs/cherry-pick-before.svg">
+      After:
+      <img src="cheat-sheet-svgs/cherry-pick-after.svg">
+    </div>
+  </section>
+
+  <section>
+    <h2>Restore an Old File</h2>
+    <div class="command">
+      <div class="command-desc">Get the version of a file from another commit:</div>
+      <div class="multi-code">
+        <code>git checkout &lt;commit&gt; &lt;file&gt;</code>
+        <span class="or">OR</span>
+        <code>git restore &lt;file&gt; --source &lt;commit&gt;</code>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Add a Remote</h2>
+    <div class="command">
+      <code>git remote add &lt;name&gt; &lt;url&gt;</code>
+    </div>
+  </section>
+
+  <section>
+    <h2>Push Your Changes</h2>
+    <div class="command">
+      <div class="command-desc">Push the main branch to the remote origin:</div>
+      <code>git push origin main</code>
+    </div>
+    <div class="command">
+      <div class="command-desc">Push the current branch to its remote "tracking branch":</div>
+      <code>git push</code>
+    </div>
+    <div class="command">
+      <div class="command-desc">Push a branch to the remote origin that you've never pushed before:</div>
+      <code>git push -u origin &lt;name&gt;</code>
+    </div>
+    <div class="command">
+      <div class="command-desc">Force push:</div>
+      <code>git push --force-with-lease</code>
+    </div>
+    <div class="command">
+      <div class="command-desc">Push tags:</div>
+      <code>git push --tags</code>
+    </div>
+  </section>
+
+  <section>
+    <h2>Pull Changes</h2>
+    <div class="command">
+      <div class="command-desc">Fetch changes (but don't change any of your local branches):</div>
+      <code>git fetch origin main</code>
+    </div>
+    <div class="command">
+      <div class="command-desc">Fetch changes and then rebase your current branch:</div>
+      <code>git pull --rebase</code>
+    </div>
+    <div class="command">
+      <div class="command-desc">Fetch changes and then merge them into your current branch:</div>
+      <div class="multi-code">
+        <code>git pull origin main</code>
+        <span class="or">OR</span>
+        <code>git pull</code>
+      </div>
+    </div>
+    <div class="command">
+      <div class="command-desc">Fetch all branches:</div>
+      <code>git fetch --all</code>
+    </div>
+  </section>
+
+  <section>
+    <h2>Configure Git</h2>
+    <div class="command">
+      <div class="command-desc">Set a config option:</div>
+      <code>git config user.name 'Your Name'</code>
+    </div>
+    <div class="command">
+      <div class="command-desc">Set option globally:</div>
+      <code>git config --global ...</code>
+    </div>
+    <div class="command">
+      <div class="command-desc">Add an alias:</div>
+      <code>git config alias.st status</code>
+    </div>
+    <div class="command">
+      <div class="command-desc">See all possible config options:</div>
+      <code>man git-config</code>
+    </div>
+  </section>
+
+  <section>
+    <h2>Important Files</h2>
+    <div class="command">
+      <div class="command-desc">Local git config:</div>
+      <code>.git/config</code>
+    </div>
+    <div class="command">
+      <div class="command-desc">Global git config:</div>
+      <code>~/.gitconfig</code>
+    </div>
+    <div class="command">
+      <div class="command-desc">List of files to ignore:</div>
+      <code>.gitignore</code>
+    </div>
+  </section>
+</body>
+
+</html>

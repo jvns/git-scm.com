@@ -1,0 +1,38 @@
+
+<svg viewBox="-0.5 -0.5 35 9" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .commit rect { fill: none; stroke: black; stroke-width: 0.2; width: 3px; height: 3px; }
+    .commit text { text-anchor: middle; transform: translate(1.5px, 2px);}
+    line { stroke: black; stroke-width: 0.2; }
+    text { font-family: monospace; font-size: 1.6px; font-weight: bold; }
+    .commit .highlight { stroke: #ff69b4; }
+  </style>
+
+  <!-- top row commits -->
+  <g class="commit" transform="translate(0, 0)">
+    <rect/><text>A</text>
+    <line x1="3" y1="1.5" x2="5" y2="1.5"/>
+  </g>
+
+  <g class="commit" transform="translate(5, 0)">
+    <line x1="3" y1="1.5" x2="5" y2="1.5"/>
+    <line x1="3" y1="1.5" x2="5" y2="5"/>
+    <rect/><text>B</text>
+  </g>
+  <g class="commit" transform="translate(10, 0)"><rect/><text>C</text></g>
+
+  <!-- bottom row commits -->
+  <g class="commit" transform="translate(10, 5)">
+    <rect class="highlight"/><text>D</text>
+    <line x1="3" y1="1.5" x2="5" y2="1.5"/>
+  </g>
+  <g class="commit" transform="translate(15, 5)"><rect/><text>E</text></g>
+
+  <!-- top annotation -->
+  <g transform="translate(13, 1.5)">
+    <polygon points="0.5,0 1.5,-0.5 1.5,0.5" fill="black"/>
+    <line x1="1.5" x2="11.0" />
+    <text x="12" y="0.5">main</text>
+  </g>
+
+</svg>
