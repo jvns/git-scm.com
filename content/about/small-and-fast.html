@@ -9,6 +9,26 @@ aliases:
 ---
   <section class="about" id="small-and-fast">
 
+{{< twograph width="400" height="200" >}}
+{
+  "nodes": [
+    { "id": "A", "x": 50, "y": 100 },
+    { "id": "B", "x": 120, "y": 100 },
+    { "id": "C", "x": 190, "y": 100 },
+    { "id": "D", "x": 190, "y": 150, "highlight": true },
+    { "id": "E", "x": 260, "y": 150 },
+    { "id": "main", "x": 320, "y": 100, "isLabel": true }
+  ],
+  "links": [
+    { "from": "A", "to": "B" },
+    { "from": "B", "to": "C" },
+    { "from": "B", "to": "D" },
+    { "from": "D", "to": "E" },
+    { "from": "main", "to": "C", "arrow": true }
+  ]
+}
+{{< /twograph >}}
+
 {{< mermaid >}}
 graph TD
   A --> B

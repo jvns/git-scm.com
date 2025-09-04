@@ -211,6 +211,97 @@
     });
   })();
 </script>
+{{ end -}}
+{{- if .Page.Store.Get "hasTwoGraph" }}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/two.js/0.8.10/two.min.js"></script>
+<style>
+  .twograph-container { margin: 20px 0; }
+  .twograph-container canvas { border: 1px solid #ccc; }
+</style>
+<script type="text/javascript">
+  (() => {
+    [...document.querySelectorAll(".twograph-container")].forEach((container) => {
+      const dataScript = container.querySelector('.twograph-data');
+      if (!dataScript) return;
+
+      const data = JSON.parse(JSON.parse(dataScript.textContent));
+      const width = parseInt(container.dataset.width) || 400;
+      const height = parseInt(container.dataset.height) || 200;
+
+      const two = new Two({ width, height }).appendTo(container);
+
+      // Draw links first (so they appear behind nodes)
+      if (data.links) {
+        data.links.forEach(link => {
+          const src = data.nodes.find(n => n.id === link.from);
+          const tgt = data.nodes.find(n => n.id === link.to);
+          if (!src || !tgt) return;
+
+          // Draw arrow if specified first to calculate line endpoint
+          let lineEndX = tgt.x, lineEndY = tgt.y;
+          if (link.arrow) {
+            const angle = Math.atan2(tgt.y - src.y, tgt.x - src.x);
+            const arrowSize = 8;
+            const offset = 25; // Distance from target node
+            const arrowX = tgt.x - offset * Math.cos(angle);
+            const arrowY = tgt.y - offset * Math.sin(angle);
+            
+            // Line should end where arrow begins
+            lineEndX = arrowX;
+            lineEndY = arrowY;
+
+            const arrow = two.makePath(
+              arrowX, arrowY,
+              arrowX - arrowSize * Math.cos(angle - Math.PI/6), arrowY - arrowSize * Math.sin(angle - Math.PI/6),
+              arrowX - arrowSize * Math.cos(angle + Math.PI/6), arrowY - arrowSize * Math.sin(angle + Math.PI/6)
+            );
+            arrow.fill = link.color || 'black';
+            arrow.stroke = link.color || 'black';
+            arrow.closed = true;
+          }
+          
+          const line = two.makeLine(src.x, src.y, lineEndX, lineEndY);
+          line.stroke = link.color || 'black';
+          line.linewidth = link.width || 2;
+        });
+      }
+
+      // Draw nodes
+      if (data.nodes) {
+        data.nodes.forEach(node => {
+          if (!node.isLabel) {
+            const size = node.size || 40;
+            const rect = two.makeRectangle(node.x, node.y, size, size);
+            rect.fill = node.fill || 'white';
+            rect.stroke = node.highlight ? '#ff69b4' : (node.stroke || 'black');
+            rect.linewidth = node.strokeWidth || 2;
+          }
+
+          // Add text label with background for labels
+          const fontSize = node.isLabel ? 18 : 20;
+          
+          if (node.isLabel) {
+            // Add white background rectangle first
+            const charWidth = fontSize * 0.6; // Approximate character width for monospace
+            const textWidth = node.id.length * charWidth;
+            const textHeight = fontSize * 1.2; // Add some padding
+            
+            const bg = two.makeRectangle(node.x, node.y, textWidth, textHeight);
+            bg.fill = 'white';
+            bg.noStroke();
+          }
+          
+          const text = two.makeText(node.id, node.x, node.y);
+          text.size = fontSize;
+          text.family = 'monospace';
+          text.fill = node.textColor || 'black';
+        });
+      }
+
+      two.update();
+    });
+  })();
+</script>
 {{ end }}
 </html>
 {{ end }}
