@@ -29,7 +29,7 @@ import Viz from "../static/js/viz-global.js"
         format: "svg",
         ...(engine ? { engine } : {}),
       })
-      pre.replaceWith(svg.substring(svg.indexOf("<svg")))
+      pre.replaceWith(`<svg class="graphviz"${svg.substring(svg.indexOf("<svg") + 4)}`)
     }
     console.log(`Rewriting ${path}`)
     writeFileSync(`${path}`, html.toString())

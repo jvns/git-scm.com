@@ -206,6 +206,7 @@
       if (!vizInstance) vizInstance = await Viz.instance()
       const engine = x.getAttribute("engine") || undefined
       const svg = vizInstance.renderSVGElement(x.innerText, { engine })
+      svg.classList.add("graphviz")
       x.parentNode.insertBefore(svg, x);
       x.style.display = 'none'
     });
