@@ -4,10 +4,10 @@
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
   .item {
-    background: #f0efe7;
+    background: var(--bg-color);
     padding: 10px;
     border-radius: 10px;
-    border: 1px solid #e0ddd0;
+    border: 1px solid var(--callout-color);
     display: flex;
     font-size: 1rem;
     flex-direction: column;
@@ -37,7 +37,7 @@
     }
 
     code {
-      background: #e8e6db;
+      background: var(--callout-color);
       color: var(--font-color);
       border-radius: 3px;
       padding: 4px 8px;
@@ -84,7 +84,7 @@
   }
 
   .commit-reference {
-    background-color: var(--callout-color);
+    background: var(--callout-color);
     border-left: 4px solid var(--orange);
     display: block;
     padding: 10px;
