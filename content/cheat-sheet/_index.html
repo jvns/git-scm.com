@@ -3,13 +3,48 @@ section: "documentation"
 subsection: "cheat-sheet"
 title: "Git Cheat Sheet"
 url: /cheat-sheet.html
+headings:
+  - text: "Getting Started"
+    id: "getting-started"
+  - text: "Prepare to Commit"
+    id: "prepare-to-commit"
+  - text: "Make Commits"
+    id: "make-commits"
+  - text: "Move Between Branches"
+    id: "move-between-branches"
+  - text: "Diff Staged/Unstaged Changes"
+    id: "diff-staged-unstaged-changes"
+  - text: "Diff Commits"
+    id: "diff-commits"
+  - text: "Ways to refer to a commit"
+    id: "ways-to-refer-to-a-commit"
+  - text: "Discard Your Changes"
+    id: "discard-your-changes"
+  - text: "Edit History"
+    id: "edit-history"
+  - text: "Code Archaeology"
+    id: "code-archaeology"
+  - text: "Combine Diverged Branches"
+    id: "combine-diverged-branches"
+  - text: "Restore an Old File"
+    id: "restore-an-old-file"
+  - text: "Add a Remote"
+    id: "add-a-remote"
+  - text: "Push Your Changes"
+    id: "push-your-changes"
+  - text: "Pull Changes"
+    id: "pull-changes"
+  - text: "Configure Git"
+    id: "configure-git"
+  - text: "Important Files"
+    id: "important-files"
 ---
 
 <div id="main" class="cheat-sheet">
   <h1>Git Cheat Sheet</h1>
 
   <section>
-    <h2>Getting Started</h2>
+    <h2 id="getting-started">Getting Started</h2>
     <div class="item">
       <h3>Start a new repo:</h3>
       <code>git init</code>
@@ -21,7 +56,7 @@ url: /cheat-sheet.html
   </section>
 
   <section>
-    <h2>Prepare to Commit</h2>
+    <h2 id="prepare-to-commit">Prepare to Commit</h2>
     <div class="item">
       <h3>Add untracked file or unstaged changes:</h3>
       <code>git add &lt;file&gt;</code>
@@ -63,7 +98,7 @@ url: /cheat-sheet.html
   </section>
 
   <section>
-    <h2>Make Commits</h2>
+    <h2 id="make-commits">Make Commits</h2>
     <div class="item">
       <h3>Make a commit (and open text editor to write message):</h3>
       <code>git commit</code>
@@ -79,7 +114,7 @@ url: /cheat-sheet.html
   </section>
 
   <section>
-    <h2>Move Between Branches</h2>
+    <h2 id="move-between-branches">Move Between Branches</h2>
     <div class="item">
       <h3>Switch branches:</h3>
       <code>git switch &lt;name&gt;</code>
@@ -111,7 +146,7 @@ url: /cheat-sheet.html
   </section>
 
   <section>
-    <h2>Diff Staged/Unstaged Changes</h2>
+    <h2 id="diff-staged-unstaged-changes">Diff Staged/Unstaged Changes</h2>
     <div class="item">
       <h3>Diff all staged and unstaged changes:</h3>
       <code>git diff HEAD</code>
@@ -127,7 +162,7 @@ url: /cheat-sheet.html
   </section>
 
   <section>
-    <h2>Diff Commits</h2>
+    <h2 id="diff-commits">Diff Commits</h2>
     <div class="item">
       <h3>Show diff between a commit and its parent:</h3>
       <code>git show &lt;commit&gt;</code>
@@ -147,7 +182,7 @@ url: /cheat-sheet.html
     </div>
   </section>
   <section class="commit-reference">
-    <h2>Ways to refer to a commit</h2>
+    <h2 id="ways-to-refer-to-a-commit">Ways to refer to a commit</h2>
     <p class="intro">
       Every time we say <code>&lt;commit&gt;</code>, you can use any of these:
     </p>
@@ -174,7 +209,7 @@ url: /cheat-sheet.html
   </section>
 
   <section>
-    <h2>Discard Your Changes</h2>
+    <h2 id="discard-your-changes">Discard Your Changes</h2>
     <div class="item">
       <h3>Delete unstaged changes to one file:</h3>
       <code>git checkout &lt;file&gt;</code>
@@ -198,7 +233,7 @@ url: /cheat-sheet.html
   </section>
 
   <section>
-    <h2>Edit History</h2>
+    <h2 id="edit-history">Edit History</h2>
     <div class="item">
       <h3>"Undo" the most recent commit (keep your working directory the same):</h3>
       <code>git reset HEAD^</code>
@@ -221,7 +256,7 @@ url: /cheat-sheet.html
   </section>
 
   <section>
-    <h2>Code Archaeology</h2>
+    <h2 id="code-archaeology">Code Archaeology</h2>
     <div class="item">
       <h3>Look at a branch's history:</h3>
       <code>git log main</code>
@@ -247,7 +282,7 @@ url: /cheat-sheet.html
   </section>
 
   <section>
-    <h2>Combine Diverged Branches</h2>
+    <h2 id="combine-diverged-branches">Combine Diverged Branches</h2>
     <div class="item">
       <h3>Combine with rebase:</h3>
       <code>git switch banana</code>
@@ -640,7 +675,7 @@ url: /cheat-sheet.html
   </section>
 
   <section>
-    <h2>Restore an Old File</h2>
+    <h2 id="restore-an-old-file">Restore an Old File</h2>
     <div class="item">
       <h3>Get the version of a file from another commit:</h3>
       <code>git checkout &lt;commit&gt; &lt;file&gt;</code>
@@ -650,14 +685,14 @@ url: /cheat-sheet.html
   </section>
 
   <section>
-    <h2>Add a Remote</h2>
+    <h2 id="add-a-remote">Add a Remote</h2>
     <div class="item">
       <code>git remote add &lt;name&gt; &lt;url&gt;</code>
     </div>
   </section>
 
   <section>
-    <h2>Push Your Changes</h2>
+    <h2 id="push-your-changes">Push Your Changes</h2>
     <div class="item">
       <h3>Push the <code>main</code> branch to the remote <code>origin</code>:</h3>
       <code>git push origin main</code>
@@ -681,7 +716,7 @@ url: /cheat-sheet.html
   </section>
 
   <section>
-    <h2>Pull Changes</h2>
+    <h2 id="pull-changes">Pull Changes</h2>
     <div class="item">
       <h3>Fetch changes (but don't change any of your local branches):</h3>
       <code>git fetch origin main</code>
@@ -703,7 +738,7 @@ url: /cheat-sheet.html
   </section>
 
   <section>
-    <h2>Configure Git</h2>
+    <h2 id="configure-git">Configure Git</h2>
     <div class="item">
       <h3>Set a config option:</h3>
       <code>git config user.name 'Your Name'</code>
@@ -723,7 +758,7 @@ url: /cheat-sheet.html
   </section>
 
   <section>
-    <h2>Important Files</h2>
+    <h2 id="important-files">Important Files</h2>
     <div class="item">
       <h3>Local git config:</h3>
       <code>.git/config</code>
