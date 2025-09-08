@@ -58,7 +58,7 @@ class Book
   def front_matter
     front_matter = {
       "category" => "book",
-      "section" => "documentation",
+      "section" => "learn",
       "subsection" => "book",
       "sidebar" => "book",
       "book" => {
