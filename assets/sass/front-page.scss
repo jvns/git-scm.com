@@ -19,22 +19,14 @@
   ul {
     @extend .unstyled !optional;
     padding-top: 24px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px 40px;
+    margin-bottom: 40px;
 
     li {
-      display: block;
-      float: left;
       width: 280px;
-      margin-bottom: 20px;
-
-      &#nav-about,
-      &#nav-downloads {
-        margin-right: 30px;
-      }
-
-      &#nav-about,
-      &#nav-documentation {
-        margin-bottom: 40px;
-      }
     }
   }
 
