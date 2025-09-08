@@ -82,6 +82,69 @@ aside {
     }
   }
 
+  .callout.icon {
+    position: relative;
+    padding: 20px 30px 20px 100px !important;
+    border: 2px solid var(--callout-color);
+    background: transparent;
+
+    &.book {
+      background: var(--callout-color);
+    }
+
+    h3 {
+      font-size: 18px;
+    }
+
+    p {
+      font-size: 15px;
+      line-height: 1.3em;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 20px;
+      left: 24px;
+      width: 54px;
+      height: 54px;
+      background-repeat: no-repeat;
+      background-size: contain;
+      opacity: 0.4;
+    }
+
+    &.video ul {
+      list-style-type: none;
+      margin-left: 1rem;
+
+      ::marker {
+        content: "⏵ ";
+        margin-right: .5rem;
+      }
+
+      li {
+        margin: .25rem 0;
+      }
+    }
+
+    &.book::before {
+      background-image: url($baseurl + "images/icons/fa-book.svg");
+    }
+
+    &.video::before {
+      background-image: url($baseurl + "images/icons/fa-video.svg");
+    }
+
+    &.cheat-sheet::before {
+      background-image: url($baseurl + "images/icons/fa-note-sticky.svg");
+    }
+
+    &.external-links::before {
+      background-image: url($baseurl + "images/icons/fa-arrow-up-right-from-square.svg");
+      top: 24px;
+    }
+  }
+
   .callout {
     background-color: var(--callout-color);
     @include border-radius(3px);
@@ -91,6 +154,16 @@ aside {
     p {
       margin-bottom: 0;
     }
+
+    a.button {
+      padding: .5rem;
+      background: var(--orange);
+      color: white;
+      display: inline-block;
+      margin-top: .5rem;
+      border-radius: .5rem;
+    }
+
   }
 
   img {
