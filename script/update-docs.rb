@@ -140,7 +140,7 @@ def extract_glossary_from_html(content, lang = 'en')
       end
     end
     definition = definition_fragment.to_html
-    
+
     term_names.each do |term|
       glossary[term] = definition
     end
@@ -764,7 +764,7 @@ def index_doc(filter_tags, doc_list, get_content)
     "subsection" => "reference",
     "title" => "Git - Reference",
     "url" => "/docs.html",
-    "aliases" => ["/docs/index.html"]
+    "aliases" => ["/docs/index.html", "/doc/index.html", "/doc", "/doc.html"]
   }
 
   File.open(DOCS_INDEX_FILE, "w") do |out|
