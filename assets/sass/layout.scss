@@ -68,6 +68,21 @@ aside {
   border: solid 1px var(--main-border);
   @include border-radius(5px);
 
+  .two-column-flex {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    &>* {
+      width: 47%;
+
+      @media (max-width: $mobile-m) {
+        width: 100%;
+      }
+    }
+  }
+
   .two-column {
     @include clearfix;
 
