@@ -84,7 +84,7 @@ aside {
 
   .callout.icon {
     position: relative;
-    padding: 20px 30px 20px 100px !important;
+    padding: 20px 20px 20px 90px !important;
     border: 2px solid var(--callout-color);
     background: transparent;
 
@@ -92,8 +92,9 @@ aside {
       background: var(--callout-color);
     }
 
-    h3 {
+    a h3 {
       font-size: 18px;
+      color: var(--link-color);
     }
 
     p {
@@ -101,17 +102,19 @@ aside {
       line-height: 1.3em;
     }
 
-    &::before {
-      content: "";
+    img {
       position: absolute;
       top: 20px;
-      left: 24px;
+      left: 17px;
       width: 54px;
       height: 54px;
-      background-repeat: no-repeat;
-      background-size: contain;
       opacity: 0.4;
+
+      :root[data-theme="dark"] & {
+        filter: invert(1);
+      }
     }
+
 
     &.video ul {
       list-style-type: none;
@@ -125,23 +128,6 @@ aside {
       li {
         margin: .25rem 0;
       }
-    }
-
-    &.book::before {
-      background-image: url($baseurl + "images/icons/fa-book.svg");
-    }
-
-    &.video::before {
-      background-image: url($baseurl + "images/icons/fa-video.svg");
-    }
-
-    &.cheat-sheet::before {
-      background-image: url($baseurl + "images/icons/fa-note-sticky.svg");
-    }
-
-    &.external-links::before {
-      background-image: url($baseurl + "images/icons/fa-arrow-up-right-from-square.svg");
-      top: 24px;
     }
   }
 
