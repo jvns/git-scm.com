@@ -354,24 +354,6 @@ ol.reference-previous-versions {
   }
 }
 
-.callout.ref-manual {
-  @include background-image-2x($baseurl + "images/icons/book", 54px, 72px, 24px 20px);
-  padding: 20px 30px 20px 100px !important;
-  background-color: var(--callout-color);
-  iframe {
-    max-width: 100%;
-  }
-
-  h3 {
-    font-size: 18px;
-  }
-
-  p {
-    font-size: 15px;
-    line-height: 1.3em;
-  }
-}
-
 p.quickref {
   @include background-image-2x($baseurl + "images/icons/document", 15px, 21px, 0 0);
   padding-left: 22px ! important;
