@@ -112,10 +112,6 @@
                 @include box-shadow(none);
             }
 
-            #front-nav img {
-                filter: none;
-            }
-
             div.monitor {
                 filter: brightness(.85);
             }
