@@ -537,7 +537,8 @@ def index_doc(filter_tags, doc_list, get_content)
             scalar |
             technical\/.*
         )\.#{ext})$/x or
-      docs_extra["git_project_specific"].include?(ent.first.sub(/^Documentation\/(.*?)(\.#{ext})?$/, '\1'))
+      docs_extra["git_project_specific"].include?(ent.first.sub(/^Documentation\/(.*?)(\.#{ext})?$/, '\1')) or
+      ent.first == "contrib/subtree/git-subtree.#{ext}"
     end
 
     puts "Found #{doc_files.size} entries"
