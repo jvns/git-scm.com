@@ -1,0 +1,14 @@
+data/guis/gitg.yml
+  h_47bf5c380f00d8 3
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "3f50cf463d22207d42d3fb4481f97edc1588b21f",
+  "prompts": {},
+  "humans": {
+    "h_47bf5c380f00d8": {
+      "author": "Julia Evans <julia@jvns.ca>"
+    }
+  }
+}
